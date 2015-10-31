@@ -2,6 +2,7 @@ package dzdp.pages;
 
 import common.pages.BaseWebPage;
 import dzdp.entities.ShopComponent;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ import java.util.List;
  * @author ToffeeLu on 2015/10/31.
  */
 public class SearchResultPage extends BaseWebPage {
+	private static Logger logger = Logger.getLogger(SearchResultPage.class);
 
 	private List<ShopComponent> shops;
 	private String cityName;
@@ -28,18 +30,20 @@ public class SearchResultPage extends BaseWebPage {
 
 	public void initControls() {
 		cityName = driver.findElement(ControlDefinition.city).getText();
+		logger.debug("get city name: " + cityName);
 
 		try {
 			pageCount = Integer.valueOf(driver.findElement(ControlDefinition.lastPage).getText());
 		} catch (Exception e) {
 			pageCount = 1;
 		}
+		logger.debug("get page count: " + pageCount);
 
 		List<WebElement> shopComponents = driver.findElements(ControlDefinition.components);
 		for (WebElement shopComponent : shopComponents) {
 			ShopComponent shop = new ShopComponent(shopComponent);
-			System.out.println(shop.toString());
 			shops.add(shop);
+			logger.debug("get shop:\n" + shop.toString());
 		}
 	}
 
