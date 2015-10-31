@@ -16,6 +16,7 @@ public class ShopComponent {
 
 	/**
 	 * init shop component
+	 *
 	 * @param element should be "//div[@id='shop-all-list']//div[@class='txt']"
 	 */
 	public ShopComponent(WebElement element) {

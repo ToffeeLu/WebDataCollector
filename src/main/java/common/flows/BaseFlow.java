@@ -6,24 +6,22 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by Lu on 2015/10/31.
  */
-public class BaseFlow {
+public abstract class BaseFlow {
 	protected WebDriver driver;
 
-	protected void ready() {
+	protected void beforeWork() {
 		driver = WebDriverUtil.createChromeDriver();
 	}
 
-	protected void work() throws Exception {
+	protected abstract void doWork() throws Exception;
 
-	}
-
-	protected void end() {
+	protected void afterWork() {
 		driver.quit();
 	}
 
 	public void execute() throws Exception {
-		ready();
-		work();
-		end();
+		beforeWork();
+		doWork();
+		afterWork();
 	}
 }

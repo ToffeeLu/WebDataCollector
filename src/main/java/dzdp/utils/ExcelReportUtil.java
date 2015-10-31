@@ -6,11 +6,9 @@ import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
- *
  * @author ToffeeLu on 2015/10/31.
  */
 public class ExcelReportUtil extends BaseExcelReportUtil {
@@ -33,8 +31,7 @@ public class ExcelReportUtil extends BaseExcelReportUtil {
 		sheet.addCell(new Label(5, 0, "地址"));
 
 		int row = 1;
-		for (int i = 0; i < shops.size(); i++) {
-			ShopComponent shop = shops.get(i);
+		for (ShopComponent shop : shops) {
 			sheet.addCell(new Label(0, row, shop.title));
 			sheet.addCell(new Label(1, row, shop.starCount));
 			sheet.addCell(new Label(2, row, shop.commentCount));

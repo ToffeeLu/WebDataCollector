@@ -4,7 +4,6 @@ import jxl.Workbook;
 import jxl.write.WritableWorkbook;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Lu on 2015/10/31.

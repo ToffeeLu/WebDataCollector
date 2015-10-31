@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * get all shops' info from dzdp keyword search result in specified cities
+ *
  * @author ToffeeLu on 2015/10/31.
  */
 public class KeyWordSearchFlow extends BaseFlow {
@@ -25,7 +26,7 @@ public class KeyWordSearchFlow extends BaseFlow {
 	}
 
 	@Override
-	public void work() throws Exception {
+	public void doWork() throws Exception {
 		for (int j = startCityIndex; j <= endCityIndex; j++) {
 			driver.navigate().to(UrlUtil.generateSearchResultUrl(j, keyword, 1));
 

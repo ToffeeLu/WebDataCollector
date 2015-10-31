@@ -1,5 +1,6 @@
 package dzdp.pages;
 
+import common.pages.BaseWebPage;
 import dzdp.entities.ShopComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,21 +11,22 @@ import java.util.List;
 
 /**
  * dzdp keyword search result page with specified city
+ *
  * @author ToffeeLu on 2015/10/31.
  */
-public class SearchResultPage {
-	private WebDriver driver;
+public class SearchResultPage extends BaseWebPage {
 
 	private List<ShopComponent> shops;
 	private String cityName;
 	private Integer pageCount;
 
 	public SearchResultPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		shops = new ArrayList<ShopComponent>();
 	}
 
-	public void initPage() {
+	public void initControls() {
 		cityName = driver.findElement(ControlDefinition.city).getText();
 
 		try {
