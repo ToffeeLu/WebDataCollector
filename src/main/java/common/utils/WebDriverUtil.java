@@ -18,7 +18,7 @@ public class WebDriverUtil {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("start-maximized");
 		WebDriver driver = new ChromeDriver(options);
-		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		return driver;
 	}
 }
